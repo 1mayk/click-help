@@ -1,12 +1,13 @@
-version: '3'
+version: '3.9'
 
 services:
   frontend:
     container_name: frontend
-    image: ./frontend
+    build: ./frontend
+    working_dir: /frontend
     platform: linux/x86_64
     volumes:
-      - ./:/frontend
+      - ./frontend:/frontend
     ports:
       - "5173:5173"
 
@@ -16,42 +17,55 @@ services:
 
   backend:
     container_name: backend
-    image: ./backend
+    build: ./backend
+    working_dir: /backend
+    # tty: true
+    # # Mesmo que `docker run -i`
+    # stdin_open: true
+    # # Substitui o comando padrão da imagem do node
+    # command: bash
+    restart: always
     ports:
       - "3001:3001"
     volumes:
-    - ./:/backend
+    - ./backend/src:/backend/src
     platform: linux/x86_64
-    tty: true
-    # Mesmo que `docker run -i`
-    stdin_open: true
-    # Substitui o comando padrão da imagem do node
-    command: bash
-    restart: always
-    depends_on:
-      - db
-
     environment:
       - APP_PORT=3001
       - JWT_SECRET=jwt_secret
-      # Os dados abaixo se referem ao container `db`
+      # db:
       - DB_USER=root
       - DB_PASS=root
       - DB_HOST=db
-      - DB_PORT=27017
-      - MONGO_URI=mongodb://mongodb:27017/speed-help
+      - DB_PORT=3306
+      # - MONGO_URI=mongodb://mongodb:27017/CarShop
+    depends_on:
+      - db
 
-db:
+  db:
     container_name: db
-    image: mongo:5.0.7
+    image: mysql:8.0
     platform: linux/x86_64
     ports:
-      - 27017:27017
+      - 3306:3306
     volumes:
       - ./:/backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
     restart: 'always'
     cap_add:
-      - SYS_NICE # Deve omitir alertas menores
+      - SYS_NICE
+  # db:
+  #   container_name: db
+  #   image: mongo:5.0.7
+  #   platform: linux/x86_64
+  #   ports:
+  #     - 27017:27017
+  #   volumes:
+  #     - ./:/backend
+  #   restart: 'always'
+  #   cap_add:
+  #     - SYS_NICE # Deve omitir alertas menores
 
 networks:
   default:
