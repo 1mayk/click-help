@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  frontend:
+    container_name: frontend
+    image: ./frontend
+    platform: linux/x86_64
+    volumes:
+      - ./:/frontend
+    ports:
+      - "5173:5173"
+
+    restart: always
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    image: ./backend
+    ports:
+      - "3001:3001"
+    volumes:
+    - ./:/backend
+    platform: linux/x86_64
+    tty: true
+    # Mesmo que `docker run -i`
+    stdin_open: true
+    # Substitui o comando padrão da imagem do node
+    command: bash
+    restart: always
+    depends_on:
+      - db
+
+    environment:
+      - APP_PORT=3001
+      - JWT_SECRET=jwt_secret
+      # Os dados abaixo se referem ao container `db`
+      - DB_USER=root
+      - DB_PASS=root
+      - DB_HOST=db
+      - DB_PORT=27017
+      - MONGO_URI=mongodb://mongodb:27017/speed-help
+
+db:
+    container_name: db
+    image: mongo:5.0.7
+    platform: linux/x86_64
+    ports:
+      - 27017:27017
+    volumes:
+      - ./:/backend
+    restart: 'always'
+    cap_add:
+      - SYS_NICE # Deve omitir alertas menores
+
+networks:
+  default:
+    name: speed_help_net
