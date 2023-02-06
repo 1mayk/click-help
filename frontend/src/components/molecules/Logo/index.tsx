@@ -1,7 +1,12 @@
+import LogoHero from "../../../assets/logo-semBG.png";
+import * as S from "./styles";
+
 function Logo() {
   return (
-    <div>Logo</div>
-  )
+    <S.Logo>
+      <img src={LogoHero} alt="Logo Header" />
+    </S.Logo>
+  );
 }
 
 export default Logo;

@@ -1,7 +1,7 @@
+import * as S from "./style";
+
 function Button() {
-  return (
-    <div>Button</div>
-  )
+  return <S.Container>Entrar</S.Container>;
 }
 
 export default Button;
