@@ -1,4 +1,4 @@
-import LogoHero from "../../../assets/logo-semBG.png";
+import LogoHero from '../../../assets/logo.png'
 import * as S from "./styles";
 
 function Logo() {

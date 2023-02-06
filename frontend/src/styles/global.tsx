@@ -1,4 +1,7 @@
 import { createGlobalStyle } from "styled-components";
+import Bkg1 from '../assets/primeira-bg.png';
+import Bkg2 from '../assets/segunda-bg.png';
+
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -27,6 +30,11 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     outline: none;
+  }
+
+  ::selection {
+    background: rgb(153, 51, 255);
+    color: white;
   }
 `
 

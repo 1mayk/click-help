@@ -1,15 +1,21 @@
 import { useState } from "react";
+import * as S from "./styles";
 import LandingPage from "../LandingPage";
-import * as S from "../LandingPage/styles";
 import Register from "../Register";
 import Login from "../Login";
 
 function Home() {
-  const [logged, setLogged] = useState(false)
+  const [logged, setLogged] = useState(false);
 
   return (
     <>
-      {logged ? <Login /> : <S.Container><LandingPage /></S.Container>}
+      {logged ? (
+        <Login />
+      ) : (
+        <S.GeneralContainer>
+          <LandingPage />
+        </S.GeneralContainer>
+      )}
     </>
   );
 }
