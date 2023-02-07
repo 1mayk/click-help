@@ -26,7 +26,7 @@ export const ColumnImage = styled.div`
   text-align: right;
 
   img {
-    max-height: 60vh;
+    max-height: 62vh;
     border-radius: 50px;
   }
 `

@@ -1,14 +1,14 @@
 import * as S from './styles';
 import Logo from '../../molecules/Logo';
 import Menu from '../Menu';
-import Button from '../../atoms/Button';
+import ButtonLogin from '../../atoms/ButtonLogin';
 
 function Header() {
   return (
     <S.Container>
       <Logo />
       <Menu />
-      <Button />
+      <ButtonLogin />
     </S.Container>
   )
 }

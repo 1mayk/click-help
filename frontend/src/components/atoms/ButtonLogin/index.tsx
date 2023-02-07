@@ -1,7 +1,9 @@
-import * as S from './styles';
+import * as S from "./style";
+import { useNavigate } from "react-router";
 
 function ButtonLogin() {
-  return <S.Container>Começar</S.Container>
+  const history = useNavigate()
+  return <S.Container onClick={() => history('/login')}>Entrar</S.Container>;
 }
 
 export default ButtonLogin;

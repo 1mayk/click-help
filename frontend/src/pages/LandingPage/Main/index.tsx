@@ -1,15 +1,15 @@
 import * as S from "./styles";
-import ButtonLogin from "../../../components/atoms/ButtonLogin";
+import ButtonRegister from "../../../components/atoms/ButtonRegister";
 import ImageBG from "../../../assets/bg-landingpage.jpg";
 
-function Main() {
+function Main() {  
   return (
     <main>
       <S.Container>
         <div>
           <h1>Seu Auxílio Terapêutico Em Apenas Um Clique!</h1>
           <h6>Profissionais certificados dosponíveis para auxílio imediato.</h6>
-          <ButtonLogin />
+          <ButtonRegister />
         </div>
 
         <S.ColumnImage>
