@@ -1,13 +1,12 @@
 import { createGlobalStyle } from "styled-components";
-import Bkg1 from '../assets/primeira-bg.png';
-import Bkg2 from '../assets/segunda-bg.png';
 
 
 const GlobalStyle = createGlobalStyle`
   * {
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
   }
 
   html, body, #root {
@@ -16,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: #F8FDFF;
-    font-family: 'Poppins', sans-serif;
   }
 
   button {
@@ -35,6 +33,14 @@ const GlobalStyle = createGlobalStyle`
   ::selection {
     background: rgb(153, 51, 255);
     color: white;
+  }
+
+  .user_home, .therapist_home {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
   }
 `
 
