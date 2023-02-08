@@ -1,14 +1,10 @@
 import * as S from "./styles";
-import SideBar from "../../../components/organisms/SideBar";
 
 function HomeUser() {
   return (
-    <>
-      <SideBar />
-      <div className="user_home">
+    <S.Container>
         <h1>Usuário</h1>
-      </div>
-    </>
+    </S.Container>
   );
 }
 

@@ -53,8 +53,8 @@ function Login() {
           <button
             type="button"
             name="button"
+            onClick={ () => history('/user') }
             // disabled={ !loginRequeriments() }
-            // onClick={ () => login() }
             // data-testid="common_login__button-login"
           >
             Entrar

@@ -4,14 +4,32 @@ import * as IoIcons from "react-icons/io";
 
 const SidebarData = [
   {
-    title: "User",
+    title: "Usuário",
     path: "/user",
     icon: <AiIcons.AiFillHome />,
     cName: "nav-text",
   },
   {
-    title: "Therapist",
+    title: "Terapeuta",
     path: "/therapist",
+    icon: <IoIcons.IoIosPaper />,
+    cName: "nav-text",
+  },
+  {
+    title: "Perfil",
+    path: "#",
+    icon: <IoIcons.IoIosPaper />,
+    cName: "nav-text",
+  },
+  {
+    title: "Histórico",
+    path: "#",
+    icon: <IoIcons.IoIosPaper />,
+    cName: "nav-text",
+  },
+  {
+    title: "Carteira",
+    path: "#",
     icon: <IoIcons.IoIosPaper />,
     cName: "nav-text",
   },

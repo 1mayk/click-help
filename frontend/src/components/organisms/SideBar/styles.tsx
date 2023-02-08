@@ -1,23 +1,31 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  // Barra Superior
   .navbar {
-    background-color: red; // Esse da pra tirar dps
+    background-color: #003055;
     height: 80px;
     display: flex;
     justify-content: start;
     align-items: center;
+    box-shadow: 0 0 20px 1px;
   }
 
+  // Ícones open/close da sidebar
   .menu-bars {
-    margin-left: 2rem;
-    font-size: 2rem;
     background: none;
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 0.625rem;
+    margin-left: 2rem;
+    cursor: pointer;
   }
 
+  // Barra Lateral
   .nav-menu {
-    background-color: red;
-    width: 250px;
+    padding-top: 1.2rem;
+    background-color: #003055;
+    width: 300px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -27,11 +35,25 @@ export const Container = styled.div`
     transition: 850ms;
   }
 
+  // Barra Lateral
   .nav-menu.active {
     left: 0;
     transition: 350ms;
   }
 
+  // Janela de Conteúdo Completa
+  .window {
+    margin-left: 0;
+    transition: 850ms;
+  }
+
+  // Janela de Conteúdo c/ Sidebar
+  .window.active {
+    margin-left: 300px;
+    transition: 350ms;
+  }
+
+  // Texto Iterno (Todos abaixo)
   .nav-text {
     display: flex;
     justify-content: start;
@@ -54,21 +76,21 @@ export const Container = styled.div`
   }
 
   .nav-text a:hover {
-    background-color: green;
+    background-color: #17a4d0;
   }
 
   .nav-menu-items {
     width: 100%;
   }
 
-  .nav-toggle {
+  /* .nav-toggle {
     background-color: blue;
     width: 100%;
     height: 80px;
     display: flex;
     justify-content: start;
     align-items: center;
-  }
+  } */
 
   span {
     margin-left: 16px;

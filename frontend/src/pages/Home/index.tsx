@@ -6,7 +6,7 @@ import Login from "../Login";
 
 /*
     REFATORAÇÃO:
-    - Está logado? Vai direto pra page de usuário ou terapeuta
+    - Está logado? Vai direto para o dash(user ou terapeuta - dependendo do token)
     - Não está? Vai para a landing page
 */
 

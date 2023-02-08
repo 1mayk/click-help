@@ -34,14 +34,6 @@ const GlobalStyle = createGlobalStyle`
     background: rgb(153, 51, 255);
     color: white;
   }
-
-  .user_home, .therapist_home {
-    display: flex;
-    height: 90vh;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-  }
 `
 
 export default GlobalStyle;
