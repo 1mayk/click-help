@@ -34,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
     background: rgb(153, 51, 255);
     color: white;
   }
+  }
 `
 
 export default GlobalStyle;

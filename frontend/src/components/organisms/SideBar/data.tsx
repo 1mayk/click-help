@@ -35,7 +35,7 @@ const SidebarData = [
   },
   {
     title: "Sair",
-    path: "#",
+    path: "/",
     icon: <FaIcons.FaCartPlus />,
     cName: "nav-text",
   },

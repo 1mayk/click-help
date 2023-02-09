@@ -45,11 +45,12 @@ export const Container = styled.div`
   .window {
     margin-left: 0;
     transition: 850ms;
+    max-width: 100%;  //Ajustar tamhno da tela
   }
-
+  
   // Janela de Conteúdo c/ Sidebar
   .window.active {
-    margin-left: 300px;
+    padding-left: 300px;
     transition: 350ms;
   }
 
