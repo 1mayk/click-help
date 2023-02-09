@@ -11,22 +11,23 @@ export const Container = styled.div`
   h1 {
     color: #1e255e;
     font-weight: bold;
-    font-size: 56px;
+    font-size: 45px;
   }
 
   h6 {
     font-weight: normal;
     font-size: 16px;
     color: rgba(30, 37, 94, 0.7);
-    margin-top: 25px;
+    margin-top: 15px;
   }
 `
 
 export const ColumnImage = styled.div`
-  text-align: right;
+  text-align: center;
 
   img {
-    max-height: 62vh;
+    margin-top: -35px;
+    max-height: 60vh;
     border-radius: 50px;
   }
 `

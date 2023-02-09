@@ -13,11 +13,11 @@ export const Container = styled.div`
   p {
     color: #1e255e;
     font-weight: 500;
-    font-size: 50px;
+    font-size: 42px;
   }
 
   .icon-page {
-    font-size: 35px;
+    font-size: 30px;
     margin-right: 10px;
     margin-left: -17px;
   }
@@ -27,13 +27,13 @@ export const Container = styled.div`
     align-items: center;
     margin-top: 20px;
     padding-left: 30px;
-    height: 50px;
-    width: 550px;
+    height: 42px;
+    width: 270px;
     border-radius: 30px;
     background-color: #17a4d0;
     color: #1e255e;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 18px;
     transition: all 0.25s ease-out;
   }
 

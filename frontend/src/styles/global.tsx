@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background: rgb(153, 51, 255);
+    background: #00D2C2;
     color: white;
   }
   }

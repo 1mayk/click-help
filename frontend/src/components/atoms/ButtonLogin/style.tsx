@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.button`
   width: 130px;
-  height: 50px;
+  height: 45px;
   border: 1px solid #17A4D0;
-  border-radius: 12px;
+  border-radius: 16px;
   color: #17a4d0;
   font-size: 15px;
   margin-left: 25px;

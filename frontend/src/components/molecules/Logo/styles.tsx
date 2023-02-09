@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Logo = styled.header`
 img {
-  height: 200px;
+  height: 175px;
 }
   
 `

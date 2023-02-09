@@ -7,7 +7,7 @@ function Main() {
     <main>
       <S.Container>
         <div>
-          <h1>Seu Auxílio Terapêutico Em Apenas Um Clique!</h1>
+          <h1>Seu auxílio terapêutico em apenas um clique!</h1>
           <h6>Profissionais certificados dosponíveis para auxílio imediato.</h6>
           <ButtonRegister />
         </div>

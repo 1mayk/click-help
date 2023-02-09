@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 400px;
+  max-width: 350px;
   margin: auto;
   text-align: center;
   padding-top: 30px;
@@ -34,10 +34,10 @@ label {
 
 input {
   margin: 0.3rem 0;
-  padding: 1rem;
+  padding: 0.7rem;
   border: 1px solid black;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 button {

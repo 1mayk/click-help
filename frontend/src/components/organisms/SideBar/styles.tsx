@@ -4,7 +4,7 @@ export const Container = styled.div`
   // Barra Superior
   .navbar {
     background-color: #003055;
-    height: 80px;
+    height: 65px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -15,7 +15,7 @@ export const Container = styled.div`
   .menu-bars {
     background: none;
     color: white;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-top: 0.625rem;
     margin-left: 2rem;
     cursor: pointer;
@@ -25,7 +25,7 @@ export const Container = styled.div`
   .nav-menu {
     padding-top: 1.2rem;
     background-color: #003055;
-    width: 300px;
+    width: 16vw;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -50,7 +50,7 @@ export const Container = styled.div`
   
   // Janela de Conteúdo c/ Sidebar
   .window.active {
-    padding-left: 300px;
+    padding-left: 16vw;
     transition: 350ms;
   }
 
@@ -61,13 +61,13 @@ export const Container = styled.div`
     align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;
-    height: 60px;
+    height: 55px;
   }
 
   .nav-text a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     width: 95%;
     height: 100%;
     display: flex;

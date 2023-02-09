@@ -7,6 +7,7 @@ export const MenuList = styled.ul`
 export const MenuItem = styled.li`
   display: inline-block;
   margin-right: 25px;
+  font-size: 15px;
   font-weight: 500;
 
   &:hover {
