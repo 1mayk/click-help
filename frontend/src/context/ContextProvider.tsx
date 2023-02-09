@@ -1,48 +1,49 @@
+import userContext from "./userContext";
+import loginContext from "./loginContext";
+import registerContext from "./registerContext";
 import { useMemo, useState } from "react";
 import { IProps } from "../interfaces/iContext";
-import { ILogin } from "../interfaces/iLogin";
-import { IRegister } from "../interfaces/iRegister";
-import { IUser } from "../interfaces/iUser";
-import clickContext from "./clickContext";
+import { INITIAL_USER_STATE } from "./userContext";
+import { INITIAL_LOGIN_STATE } from "./loginContext";
+import { INITIAL_REGISTER_STATE } from "./registerContext";
 
 function ContextProvider({ children }: IProps) {
-  const [loginData, setLoginData] = useState<ILogin>({
-    email: "",
-    password: "",
-  });
+  const [user, setUser] = useState(INITIAL_USER_STATE.user);
+  const [login, setLogin] = useState(INITIAL_LOGIN_STATE.login);
+  const [register, setRegister] = useState(INITIAL_REGISTER_STATE.register);
 
-  const [registerData, setRegisterData] = useState<IRegister>({
-    name: "",
-    email: "",
-    password: "",
-  });
-
-  const [userData, setUserData] = useState<IUser>({
-    name: "",
-    email: "",
-    balance: 0,
-    // role: "",
-    // token: "",
-  });
-
-  // Passa os tipos de cada variável automaticamente no value abaixo
-  const contextValue = useMemo(
+  const userContextValue = useMemo(
     () => ({
-      loginData,
-      setLoginData,
-      registerData,
-      setRegisterData,
-      userData,
-      setUserData,
+      user,
+      setUser,
     }),
-    [loginData, registerData, userData]
+    [user]
+  );
+
+  const loginContextValue = useMemo(
+    () => ({
+      login,
+      setLogin,
+    }),
+    [login]
+  );
+
+  const registerContextValue = useMemo(
+    () => ({
+      register,
+      setRegister,
+    }),
+    [register]
   );
 
   return (
-    // Estado iniciando no outro arquivo + os tipos com useMemo
-    <clickContext.Provider value={{ state: contextValue }}>
-      {children}
-    </clickContext.Provider>
+    <userContext.Provider value={userContextValue}>
+      <loginContext.Provider value={loginContextValue}>
+        <registerContext.Provider value={registerContextValue}>
+          {children}
+        </registerContext.Provider>
+      </loginContext.Provider>
+    </userContext.Provider>
   );
 }
 

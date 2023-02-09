@@ -1,12 +1,18 @@
 import { useContext } from "react";
-import clickContext from "../context/clickContext";
+import userContext from "../context/userContext";
+import loginContext from "../context/loginContext";
+import registerContext from "../context/registerContext";
 
 const useAppContext = () => {
-  const context = useContext(clickContext);
+  const contextUser = useContext(userContext);
+  const contextLogin = useContext(loginContext);
+  const contextRegister = useContext(registerContext);
 
-  return context;
+  return {
+    ...contextUser,
+    ...contextLogin,
+    ...contextRegister
+  };
 }
 
 export default useAppContext;
-
-// Para utilizar basta chamar: const {state: {prop}} = useAppContext()

@@ -6,7 +6,7 @@ function HomeUser() {
     <S.Container>
       <p>Bem vindo ao Click Help!</p>
       <button>
-        <AiIcons.AiFillPlayCircle className="icon-page"/>
+        <AiIcons.AiFillPlayCircle className="icon-page" />
         FAÇA UMA CONSULTA
       </button>
     </S.Container>
