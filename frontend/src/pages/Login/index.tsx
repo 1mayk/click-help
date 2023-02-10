@@ -1,80 +1,46 @@
-import { ILogin } from "../../interfaces/iLogin";
-import { ChangeEvent, useState } from "react";
-import { useNavigate } from "react-router";
 import * as S from "./styles";
-import Input from "../../components/atoms/Input";
+import LoginForm from "./LoginForm";
+import useAppContext from "../../hooks/useAppContext";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { ILogin } from "../../interfaces/iLogin";
+import { IUser } from "../../interfaces/iUser";
+import reqData from "../../services/requestJson";
 
 function Login() {
-  const history = useNavigate()
+  const history = useNavigate();
+  const {setLogin} = useAppContext();
 
-  const [LoginData, setLoginData] = useState<ILogin>({
+  const [data, setData] = useState<IUser>({
     email: "",
-    password: "",
+    name: "",
+    balance: 0,
   });
 
-  const handleChange = ({
-    target: { value, name },
-  }: ChangeEvent<HTMLInputElement>) => {
-    setLoginData((prevState: ILogin) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  const redirect = async (user: ILogin) => {
+    const response = await reqData();
+    setData(response[0]);
+    setLogin(user);
+    if (data.email === user.email && user.email !== "") {
+      history("/user");
+    } else {
+      alert("Email Inválido!")
+    }
+  }
 
   return (
     <S.Container>
       <div className="form-container">
         <h1>Bem-vindo de volta</h1>
-        <form className="login-form">
-          <label htmlFor="email-input">
-            <span>Email</span>
-          </label>
-          <Input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="email@email.com"
-            value={LoginData.email}
-            onChange={(e) => handleChange(e)}
-            // data-testid="common_login__input-email"
-          />
-          <label htmlFor="email-input">
-            <span>Senha</span>
-          </label>
-          <Input
-            id="password"
-            type="password"
-            name="password"
-            placeholder="**********"
-            value={LoginData.password}
-            onChange={(e) => handleChange(e)}
-            // data-testid="common_login__input-password"
-          />
-          <button
-            type="button"
-            name="button"
-            onClick={ () => history('/user') }
-            // disabled={ !loginRequeriments() }
-            // data-testid="common_login__button-login"
-          >
-            Entrar
-          </button>
-          <p
-            onClick={() => history('/register')}
-            // data-testid="common_login__button-register"
-          >
-            Ainda não tenho conta
-          </p>
-        </form>
+        <LoginForm formData={redirect}/>
         {/* {
-      (failedTryLogin)
+        (failedTryLogin)
         ? (
-          <p data-testid="common_login__element-invalid-email">
             { messageError }
           </p>
         )
         : null
-    } */}
+        }*/}
       </div>
     </S.Container>
   );
