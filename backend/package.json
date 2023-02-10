@@ -1,6 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "author": "Mayk",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,7 +12,6 @@
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "keywords": [],
-  "author": "Mayk",
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.3.4",
