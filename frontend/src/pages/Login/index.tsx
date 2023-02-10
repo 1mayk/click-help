@@ -9,7 +9,7 @@ import reqData from "../../services/requestJson";
 
 function Login() {
   const history = useNavigate();
-  const {setLogin} = useAppContext();
+  const { setLogin } = useAppContext();
 
   const [data, setData] = useState<IUser>({
     email: "",
@@ -17,22 +17,26 @@ function Login() {
     balance: 0,
   });
 
-  const redirect = async (user: ILogin) => {
-    const response = await reqData();
-    setData(response[0]);
-    setLogin(user);
-    if (data.email === user.email && user.email !== "") {
-      history("/user");
-    } else {
-      alert("Email Inválido!")
-    }
+  async function inputStorage() {
+    return localStorage.setItem("user", JSON.stringify(data));
   }
+
+  const redirect = async (userLogin: ILogin) => {
+    const response = await reqData();
+    setData(response[0]); //Info do DB
+    setLogin(userLogin); //Info do LoginForm
+    if (userLogin.email !== data.email || userLogin.email === "") {
+      return alert("Email Inválido!");
+    }
+    await inputStorage();
+    history("/user");
+  };
 
   return (
     <S.Container>
       <div className="form-container">
         <h1>Bem-vindo de volta</h1>
-        <LoginForm formData={redirect}/>
+        <LoginForm formData={redirect} />
         {/* {
         (failedTryLogin)
         ? (
