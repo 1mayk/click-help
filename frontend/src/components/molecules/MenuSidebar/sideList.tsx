@@ -11,6 +11,7 @@ function SideList(props: ISide) {
           <AiIcons.AiOutlineClose />
         </Link>
       </li>
+
       {SidebarData.map((item, index) => {
         return (
           <li key={index} className={item.cName}>

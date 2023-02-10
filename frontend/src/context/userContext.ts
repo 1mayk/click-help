@@ -12,8 +12,8 @@ const INITIAL_USER_STATE = {
   user: {
     name: "",
     email: "",
+    role: "",
     balance: 0
-    // role: "",
     // token: ""
   },
   setUser: () => {}

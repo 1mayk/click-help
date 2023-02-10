@@ -1,8 +1,8 @@
 import * as S from "./styles";
-import ButtonRegister from "../../../components/atoms/ButtonRegister";
+import ButtonRegister from "../../atoms/ButtonRegister";
 import ImageBG from "../../../assets/bg-landingpage.jpg";
 
-function Main() {  
+function MainLandingPage() {  
   return (
     <main>
       <S.Container>
@@ -20,4 +20,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default MainLandingPage;

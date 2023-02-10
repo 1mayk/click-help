@@ -1,9 +1,9 @@
 import * as S from './styles';
 import Logo from '../../molecules/Logo';
-import Menu from '../Menu';
+import Menu from '../../molecules/MenuHeader';
 import ButtonLogin from '../../atoms/ButtonLogin';
 
-function Header() {
+function HeaderLandingPage() {
   return (
     <S.Container>
       <Logo />
@@ -13,4 +13,4 @@ function Header() {
   )
 }
 
-export default Header;
+export default HeaderLandingPage;

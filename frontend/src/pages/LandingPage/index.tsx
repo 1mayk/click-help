@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import Header from "../../components/organisms/Header";
+import HeaderLandingPage from "../../components/organisms/HeaderLandingPage";
 import SpinnerLoading from "../../components/molecules/LoadingSpinner";
-import Main from "./Main";
+import MainLandingPage from "../../components/organisms/MainLandingPage";
 import * as S from "./styles";
 
 function LandingPage() {
@@ -17,8 +17,8 @@ function LandingPage() {
     <SpinnerLoading />
   ) : (
     <S.Container>
-      <Header />
-      <Main />
+      <HeaderLandingPage />
+      <MainLandingPage />
     </S.Container>
   );
 }

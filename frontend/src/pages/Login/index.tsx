@@ -1,5 +1,5 @@
 import * as S from "./styles";
-import LoginForm from "./LoginForm";
+import LoginForm from "../../components/organisms/LoginForm/LoginForm";
 import useAppContext from "../../hooks/useAppContext";
 import { useState } from "react";
 import { useNavigate } from "react-router";
@@ -14,6 +14,7 @@ function Login() {
   const [data, setData] = useState<IUser>({
     email: "",
     name: "",
+    role: "",
     balance: 0,
   });
 

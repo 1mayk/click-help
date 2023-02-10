@@ -1,6 +1,8 @@
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
+import * as RiIcons from "react-icons/ri";
+import * as BsIcons from "react-icons/bs";
 
 const SidebarData = [
   {
@@ -18,25 +20,25 @@ const SidebarData = [
   {
     title: "Perfil",
     path: "#",
-    icon: <IoIcons.IoIosPaper />,
+    icon: <FaIcons.FaUser />,
     cName: "nav-text",
   },
   {
     title: "Histórico",
     path: "#",
-    icon: <IoIcons.IoIosPaper />,
+    icon: <RiIcons.RiHistoryLine />,
     cName: "nav-text",
   },
   {
     title: "Carteira",
     path: "#",
-    icon: <IoIcons.IoIosPaper />,
+    icon: <BsIcons.BsWallet />,
     cName: "nav-text",
   },
   {
     title: "Sair",
     path: "/",
-    icon: <FaIcons.FaCartPlus />,
+    icon: <IoIcons.IoMdExit />,
     cName: "nav-text",
   },
 ];

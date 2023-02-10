@@ -1,8 +1,8 @@
-import { ILogin } from "../../interfaces/iLogin";
-import { ILoginProps } from "../../interfaces/iLogin";
+import { ILogin } from "../../../interfaces/iLogin";
+import { ILoginProps } from "../../../interfaces/iLogin";
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router";
-import Input from "../../components/atoms/Input";
+import Input from "../../atoms/Input";
 
 function LoginForm(props: ILoginProps) {
   const history = useNavigate();

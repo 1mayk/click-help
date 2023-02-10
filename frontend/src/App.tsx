@@ -5,7 +5,7 @@ import HomeUser from "./pages/User/Home";
 import HomeTherapist from "./pages/Therapist/Home";
 import { Route, Routes, Navigate, useLocation } from "react-router";
 import pathsWithSidebar from "./helpers/pathsWithSidebar";
-import SideBar from "./components/organisms/SideBar";
+import SideBar from "./components/organisms/Sidebar";
 
 function App() {
   const location = useLocation();
