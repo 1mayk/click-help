@@ -25,7 +25,7 @@ export const Container = styled.div`
   .nav-menu {
     padding-top: 1.2rem;
     background-color: #003055;
-    width: 16vw;
+    width: 17.5vw;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -50,7 +50,7 @@ export const Container = styled.div`
   
   // Janela de Conteúdo c/ Sidebar
   .window.active {
-    padding-left: 16vw;
+    padding-left: 17.5vw;
     transition: 350ms;
   }
 
