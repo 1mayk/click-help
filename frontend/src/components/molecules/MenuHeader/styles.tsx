@@ -17,7 +17,7 @@ export const MenuItem = styled.li`
   }
 
   a {
-    color: #1e255e
+    /* color: #1e255e */
     transition: color 0.25s ease;
   }
 `

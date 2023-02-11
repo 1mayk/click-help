@@ -5,4 +5,5 @@ import Bkg2 from '../../assets/segunda-bg.png';
 export const GeneralContainer = styled.div`
   background: url(${Bkg1}) no-repeat 1010px, url(${Bkg2}) no-repeat 931px;
   background-size: cover;
+  height: 100%;
 `

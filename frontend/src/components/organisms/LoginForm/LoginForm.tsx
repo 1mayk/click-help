@@ -49,6 +49,7 @@ function LoginForm(props: ILoginProps) {
         type="button"
         name="button"
         onClick={() => props.formData(LoginData)}
+        className="login-btn"
         // disabled={ !loginRequeriments() }
       >
         Entrar

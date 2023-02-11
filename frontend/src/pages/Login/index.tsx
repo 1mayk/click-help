@@ -1,4 +1,5 @@
 import * as S from "./styles";
+import { GeneralContainer } from "../Home/styles";
 import LoginForm from "../../components/organisms/LoginForm/LoginForm";
 import useAppContext from "../../hooks/useAppContext";
 import { useState } from "react";
@@ -6,6 +7,7 @@ import { useNavigate } from "react-router";
 import { ILogin } from "../../interfaces/iLogin";
 import { IUser } from "../../interfaces/iUser";
 import reqData from "../../services/requestJson";
+import HeaderLandingPage from "../../components/organisms/HeaderLandingPage";
 
 function Login() {
   const history = useNavigate();
@@ -34,20 +36,25 @@ function Login() {
   };
 
   return (
-    <S.Container>
-      <div className="form-container">
-        <h1>Bem-vindo de volta</h1>
-        <LoginForm formData={redirect} />
-        {/* {
-        (failedTryLogin)
-        ? (
-            { messageError }
-          </p>
-        )
-        : null
-        }*/}
-      </div>
-    </S.Container>
+    <GeneralContainer>
+      <S.Container>
+        <HeaderLandingPage />
+        <div className="main-container">
+          <div className="form-container">
+            <h1>Bem-vindo de volta</h1>
+            <LoginForm formData={redirect} />
+            {/* {
+            (failedTryLogin)
+            ? (
+              { messageError }
+              </p>
+              )
+              : null
+            }*/}
+          </div>
+        </div>
+      </S.Container>
+    </GeneralContainer>
   );
 }
 
