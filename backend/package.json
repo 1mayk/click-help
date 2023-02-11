@@ -5,10 +5,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx tsx ./src/server.ts",
-    "dev": "nodemon --watch \"./src/**\" ./src/server.ts",
+    "build": "npx tsc",
+    "start": "npm run build && node ./build/index.js",
+    "dev": "nodemon --exec ts-node ./src/index.ts",
     "test": "mocha -r ts-node/register src/tests/unit/**/*.test.ts --exit -t 60000",
-    "test:coverage": "nyc npm run test:dev",
+    "test:coverage": "nyc npm run test",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "keywords": [],
