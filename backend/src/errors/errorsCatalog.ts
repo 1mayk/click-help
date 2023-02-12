@@ -3,18 +3,18 @@ export type ErrorResponseObject = {
 };
 
 const ErrorCatalog: ErrorResponseObject = {
-  contentNotFound: {
-    msg: "O conteúdo com o Id buscado não existe!",
+  userNotFound: {
+    msg: "Usuário não encontrado!",
     statusCode: 404,
+  },
+  invalidPassword: {
+    msg: "Senha incorreta, tente novamente!",
+    statusCode: 400,
   },
   invalidFields: {
     msg: "O título é obrigatório e deve possuir mais de 4 caracteres!",
     statusCode: 400,
-  },
-  contentsNotFound: {
-    msg: "Não existem conteúdos com esse título!",
-    statusCode: 404,
-  },
+  }
 };
 
 export default ErrorCatalog;
