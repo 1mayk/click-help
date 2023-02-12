@@ -15,10 +15,6 @@ const ErrorCatalog: ErrorResponseObject = {
     msg: "Não existem conteúdos com esse título!",
     statusCode: 404,
   },
-  dbError: {
-    msg: "Banco de dados não conectado!",
-    statusCode: 500,
-  }
 };
 
 export default ErrorCatalog;
