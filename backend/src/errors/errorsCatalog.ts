@@ -10,6 +10,10 @@ const ErrorCatalog: ErrorResponseObject = {
   invalidPassword: {
     msg: "Senha incorreta, tente novamente!",
     statusCode: 400,
+  },
+  userAlreadyExists: {
+    msg: "Email já cadastrado!",
+    statusCode: 409
   }
 };
 
