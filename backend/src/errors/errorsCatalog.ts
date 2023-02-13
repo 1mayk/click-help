@@ -10,10 +10,6 @@ const ErrorCatalog: ErrorResponseObject = {
   invalidPassword: {
     msg: "Senha incorreta, tente novamente!",
     statusCode: 400,
-  },
-  invalidFields: {
-    msg: "O título é obrigatório e deve possuir mais de 4 caracteres!",
-    statusCode: 400,
   }
 };
 
