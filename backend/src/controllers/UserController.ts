@@ -4,9 +4,7 @@ import UserService from "../services/UserService";
 export default class UserController {
   private _userService = new UserService();
 
-  create = async(req: Request, res: Response): Promise<Response | void> => {
-    // Validação do body
-    // const validUser = await.userservice.validate(req.body)
+  create = async (req: Request, res: Response): Promise<Response | void> => {
     const userCreated = await this._userService.create(req.body);
     res.status(201).json(userCreated);
   };
@@ -17,13 +15,7 @@ export default class UserController {
   };
 
   findOne = async (req: Request, res: Response): Promise<Response | void> => {
-    const user = req.body;
-    // Fazer a validação de formato do login e password com service
-    // const {email, password} = validate(req.body)
-    const userFinded = await this._userService.findOne(user);
-    // Fazer lógica do token
+    const userFinded = await this._userService.findOne(req.body);
     res.status(200).json(userFinded);
   };
-
-  // create
 }
