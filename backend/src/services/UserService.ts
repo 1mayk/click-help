@@ -8,9 +8,16 @@ export default class UserService {
   create = async (user: IUser): Promise<IUser | void> => {
     const userExists = await this.findOne(user.email);
     if (userExists) throw Error("userAlreadyExists");
-    const userCreated = await this._userModel.create(user as any);
+    const userCreated = (await this._userModel.create(
+      user as any
+    )) as IUser;
     // Gerar e retornar o token
-    return userCreated as IUser;
+    return {
+      username: userCreated.username,
+      email: userCreated.email,
+      role: userCreated.role,
+      balance: userCreated.balance
+    } as IUser;
   };
 
   findAll = async (): Promise<IUser[] | void> => {
@@ -22,16 +29,16 @@ export default class UserService {
     const userFinded = await this._userModel.findOne({
       where: { email },
     });
-    
+
     return userFinded as IUser;
   };
-  
+
   login = async (user: ILogin): Promise<IUser | void> => {
     const { email, password } = user;
-    const userFinded = await this.findOne(email)
+    const userFinded = await this.findOne(email);
     if (!userFinded) throw Error("userNotFound");
     if (userFinded.password !== password) throw Error("invalidPassword");
     // gerar e retornar token
-    return userFinded;
-  }
+    return { email: userFinded.email } as IUser;
+  };
 }
