@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    background-color: none;
-    height: 65px;
     display: flex;
     justify-content: end;
     flex-direction: row;
     align-items: center;
+    background-color: none;
+    color: white;
+    height: 65px;
+    margin-top: -65px;
+    padding-right: 50px;
 `

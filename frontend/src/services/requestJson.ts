@@ -1,6 +1,6 @@
 const reqData = async () => {
   try {
-    const file = await fetch("../../mockData.json");
+    const file = await fetch("'../helpers/mockData.json'");
     const data = await file.json();
     return data;
   } catch (err) {

@@ -20,7 +20,7 @@ function HomeUser() {
 
   return (
     <S.Container>
-      <p>Bem vindo ao Click Help! {user.name}</p>
+      <p>Bem vindo ao Click Help! {user.username.split(" ")[0]}</p>
       <button>
         <AiIcons.AiFillPlayCircle className="icon-page" />
         FAÇA UMA CONSULTA

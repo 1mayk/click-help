@@ -1,14 +1,14 @@
-import * as S from './styles';
+import * as S from "./styles";
+import useAppContext from "../../../hooks/useAppContext";
 
 function MenuTherapist() {
+  const { user } = useAppContext();
+
   return (
     <S.Container>
-      <p>Menu 6</p>
-      <p>Menu 7</p>
-      <p>Menu 8</p>
-      <p>Menu 9</p>
-      </S.Container>
-  )
+      <p>Saldo: R$ {Number(user.balance).toFixed(2)}</p>
+    </S.Container>
+  );
 }
 
 export default MenuTherapist;

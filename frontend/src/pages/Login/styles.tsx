@@ -34,7 +34,7 @@ export const Container = styled.div`
     padding-bottom: 20px;
   }
 
-  p {
+  .notAccount {
     cursor: pointer;
     padding-top: 15px;
     font-weight: 500;
@@ -42,8 +42,12 @@ export const Container = styled.div`
     text-decoration: underline;
   }
 
-  p:hover {
+  .notAccount:hover {
     color: #17a4d0;
+  }
+
+  .errorMsg {
+    color: red;
   }
 
   label {
@@ -79,4 +83,16 @@ export const Container = styled.div`
   .login-btn:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
   }
+
+  .login-btn[disabled] {
+  cursor: not-allowed;
+  background-color: gray;
+  color: black;
+
+  &:hover {
+    background-color: gray;
+    color: black;
+  }
+}
+
 `;

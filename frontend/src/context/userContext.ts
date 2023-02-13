@@ -10,7 +10,7 @@ type PropsUserContext = {
 // Inicio o estado aplicado os valores default de cada propriedade
 const INITIAL_USER_STATE = {
   user: {
-    name: "",
+    username: "",
     email: "",
     role: "",
     balance: 0

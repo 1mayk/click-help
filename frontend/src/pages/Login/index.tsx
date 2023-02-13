@@ -6,33 +6,28 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { ILogin } from "../../interfaces/iLogin";
 import { IUser } from "../../interfaces/iUser";
-import reqData from "../../services/requestJson";
+import { reqLogin } from "../../services/requests";
 import HeaderLandingPage from "../../components/organisms/HeaderLandingPage";
 
 function Login() {
   const history = useNavigate();
   const { setLogin } = useAppContext();
-
-  const [data, setData] = useState<IUser>({
-    email: "",
-    name: "",
-    role: "",
-    balance: 0,
-  });
-
-  async function inputStorage() {
-    return localStorage.setItem("user", JSON.stringify(data));
-  }
+  const [failedLogin, setFailedLogin] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const redirect = async (userLogin: ILogin) => {
-    const response = await reqData();
-    setData(response[0]); //Info do DB
-    setLogin(userLogin); //Info do LoginForm
-    if (userLogin.email !== data.email || userLogin.email === "") {
-      return alert("Email Inválido!");
+    setLogin(userLogin); //Recebido do LoginForm
+
+    try {
+      const response = (await reqLogin("/login", userLogin)) as IUser;
+
+      localStorage.setItem("user", JSON.stringify(response));
+      if (response.role === "user") history("/user");
+      if (response.role === "therapist") history("/therapist");
+    } catch (error: any) {
+      setFailedLogin(true);
+      setErrorMessage(error.response.data.message);
     }
-    await inputStorage();
-    history("/user");
   };
 
   return (
@@ -43,14 +38,7 @@ function Login() {
           <div className="form-container">
             <h1>Bem-vindo de volta</h1>
             <LoginForm formData={redirect} />
-            {/* {
-            (failedTryLogin)
-            ? (
-              { messageError }
-              </p>
-              )
-              : null
-            }*/}
+            {failedLogin ? <p className="errorMsg">{errorMessage}</p> : null}
           </div>
         </div>
       </S.Container>

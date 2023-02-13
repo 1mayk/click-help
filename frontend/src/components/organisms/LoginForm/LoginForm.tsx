@@ -12,6 +12,16 @@ function LoginForm(props: ILoginProps) {
     password: "",
   });
 
+  const loginRequeriments = () => {
+    const PASSWORD_LIMIT_SIZE = 6;
+    const emailRegex = /\S+@\S+\.\S+/i;
+    return (
+      emailRegex.test(LoginData.email) &&
+      LoginData.password &&
+      LoginData.password.length >= PASSWORD_LIMIT_SIZE
+    );
+  };
+
   const handleChange = ({
     target: { value, name },
   }: ChangeEvent<HTMLInputElement>) => {
@@ -50,11 +60,11 @@ function LoginForm(props: ILoginProps) {
         name="button"
         onClick={() => props.formData(LoginData)}
         className="login-btn"
-        // disabled={ !loginRequeriments() }
+        disabled={!loginRequeriments()}
       >
         Entrar
       </button>
-      <p onClick={() => history("/register")}>
+      <p className="notAccount" onClick={() => history("/register")}>
         Ainda não tenho conta
       </p>
     </form>
