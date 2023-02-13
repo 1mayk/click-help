@@ -39,6 +39,11 @@ export default class UserService {
     if (!userFinded) throw Error("userNotFound");
     if (userFinded.password !== password) throw Error("invalidPassword");
     // gerar e retornar token
-    return { email: userFinded.email } as IUser;
+    return {
+      username: userFinded.username,
+      email: userFinded.email,
+      role: userFinded.role,
+      balance: userFinded.balance
+    }  as IUser;
   };
 }
