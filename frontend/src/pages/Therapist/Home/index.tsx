@@ -17,7 +17,7 @@ function HomeTherapist() {
 
   return (
     <S.Container>
-      <p>Bem Vindo! Terapeuta {user.username.split(" ")[0]}</p>
+      <p>Bem vindo! Terapeuta {user.username.split(" ")[0]}</p>
     </S.Container>
   );
 }
