@@ -2,10 +2,12 @@ import { ILogin } from "../../../interfaces/iLogin";
 import { ILoginProps } from "../../../interfaces/iLogin";
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router";
+import ShowPasswordIcon from "../../atoms/ShowPasswordIcon";
 import Input from "../../atoms/Input";
 
 function LoginForm(props: ILoginProps) {
   const history = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const [LoginData, setLoginData] = useState<ILogin>({
     email: "",
@@ -49,12 +51,16 @@ function LoginForm(props: ILoginProps) {
       </label>
       <Input
         id="password"
-        type="password"
+        type={showPassword ? "text" : "password"}
         name="password"
         placeholder="**********"
         value={LoginData.password}
         onChange={(e) => handleChange(e)}
       />
+      <button type="button" onClick={() => setShowPassword(!showPassword)}>
+        <ShowPasswordIcon value={showPassword} />
+      </button>
+
       <button
         type="button"
         name="button"

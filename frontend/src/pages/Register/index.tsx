@@ -1,26 +1,28 @@
 import * as S from "./styles";
 import { IRegister } from "../../interfaces/iRegister";
-import { ChangeEvent, useState } from "react";
+import { IUser } from "../../interfaces/iUser";
+import { useState } from "react";
 import { useNavigate } from "react-router";
+import { reqUserRegister } from "../../services/requests";
 import HeaderLandingPage from "../../components/organisms/HeaderLandingPage";
-import Input from "../../components/atoms/Input";
+import RegisterForm from "../../components/organisms/RegisterForm/RegisterForm";
 
 function Register() {
   const history = useNavigate();
+  const [failedRegister, setFailedRegister] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const [RegisterData, setRegisterData] = useState<IRegister>({
-    name: "",
-    email: "",
-    password: "",
-  });
-
-  const handleChange = ({
-    target: { value, name },
-  }: ChangeEvent<HTMLInputElement>) => {
-    setRegisterData((prevState: IRegister) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  const redirect = async (userLogin: IRegister) => {
+    try {
+      const response = (await reqUserRegister("/register", userLogin)) as IUser;
+      localStorage.setItem("user", JSON.stringify(response));
+      alert("Cadastro feito com sucesso"); // Editar alert
+      if (response.role === "user") history("/user");
+      if (response.role === "therapist") history("/therapist");
+    } catch (error: any) {
+      setFailedRegister(true);
+      setErrorMessage(error.response.data.message);
+    }
   };
 
   return (
@@ -30,71 +32,12 @@ function Register() {
         <div className="main-container">
           <div className="form-container">
             <h1>Crie uma nova conta</h1>
-            <form className="register-form">
-              <label htmlFor="name-input">
-                <span>Nome</span>
-              </label>
-              <Input
-                id="name"
-                type="name"
-                name="name"
-                placeholder="Nome Completo"
-                value={RegisterData.name}
-                onChange={(e) => handleChange(e)}
-                //data-testid="common_register__input-name"
-              />
-
-              <label htmlFor="email-input">
-                <span>Email</span>
-              </label>
-              <Input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="email@email.com"
-                value={RegisterData.email}
-                onChange={(e) => handleChange(e)}
-                // data-testid="common_register__input-email"
-              />
-
-              <label className="resgister-label" htmlFor="password-input">
-                <span>Senha</span>
-              </label>
-              <Input
-                id="password"
-                type="password"
-                name="password"
-                placeholder="*********"
-                value={RegisterData.password}
-                onChange={(e) => handleChange(e)}
-                // data-testid="common_register__input-password"
-              />
-
-              <button
-                type="button"
-                name="button-user"
-                className="register-btn"
-                // disabled={ !loginRequeriments() }
-                // onClick={ () => register() }
-                // data-testid="common_register__button-register"
-                >
-                Usuário
-              </button>
-              <button
-                type="button"
-                name="button-therapist"
-                className="register-btn"
-                // disabled={ !loginRequeriments() }
-                // onClick={ () => register() }
-                // data-testid="common_register__button-register"
-              >
-                Terapeuta
-              </button>
-            </form>
+            <RegisterForm formData={redirect} />
+            {failedRegister ? <p className="errorMsg">{errorMessage}</p> : null}
           </div>
         </div>
       </S.Container>
-      </S.GlobalRegisterContainer>
+    </S.GlobalRegisterContainer>
   );
 }
 

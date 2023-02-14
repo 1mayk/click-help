@@ -1,5 +1,9 @@
-import { ILogin } from "./iLogin";
+import { IUser } from "./iUser";
 
-export interface IRegister extends ILogin {
-  name: string;
+export interface IRegister extends IUser {
+  password: string;
+}
+
+export interface IRegisterProps {
+  formData: (user: IRegister) => void;
 }

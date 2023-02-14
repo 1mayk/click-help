@@ -18,15 +18,10 @@ const reqUserRegister = async (
   endpoint: string,
   user: IUser
 ): Promise<IUser | void> => {
-  try {
     const routeUrl = getUrl(endpoint);
-    const userCreated = await axios.post(routeUrl, user);
-    console.log(userCreated);
-    localStorage.setItem("user", JSON.stringify(userCreated));
-  } catch (error: any) {
-    console.log(error);
-    return error.response;
-  }
+    const { data } = await axios.post(routeUrl, user);
+    
+    return data;
 };
 
 export { reqLogin, reqUserRegister };
