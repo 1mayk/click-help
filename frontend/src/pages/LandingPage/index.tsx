@@ -5,7 +5,7 @@ import MainLandingPage from "../../components/organisms/MainLandingPage";
 import * as S from "./styles";
 
 function LandingPage() {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
